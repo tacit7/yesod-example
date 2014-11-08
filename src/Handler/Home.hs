@@ -54,6 +54,8 @@ getHomeR = defaultLayout $ do
                 <div .control-group>
                     <button #updatemarkdown .btn .btn-primary>Update markdown output
                 <div #markdownoutput>
+            <div>
+                <button #sayHello .btn> Say Hello
     |]
 
     -- Similar to Hamlet, Yesod has Lucius for CSS, and Julius for Javascript.
@@ -79,7 +81,10 @@ getHomeR = defaultLayout $ do
                 $("#fiboutput").text(o.value);
             });
         }
-        
+
+        function sayHello() {
+            alert("hello");
+        }
         function updateMarkdown() {
             // Note the use of the MarkdownR Haskell data type here.
             // This is an example of a type-safe URL.
@@ -98,5 +103,6 @@ getHomeR = defaultLayout $ do
             
             updateMarkdown();
             $("#updatemarkdown").click(updateMarkdown);
+            $("#sayHello").click(sayHello);
         });
     |]
